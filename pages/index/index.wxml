@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="title">Studi Kasus 2: To Do List</view>
+
+    <view class="input-section">
+      <input type="text" value="{{newTask}}" placeholder="Enter a new task" bindinput="bindTaskInput" />
+      <button type="primary" bindtap="addTask">Add Task</button>
+    </view>
+    <view class="task-list">
+      <view style="text-align: center;margin-top: 15px;margin-bottom:15px;font-weight: bold;">List of Tasks</view>
+      <block wx:for="{{tasks}}" wx:key="id">
+        <view class="task-item">
+          <text>{{item.name}}</text>
+          <button type="warn" data-id="{{item.id}}" bindtap="deleteTask" style="margin: 0px;">Delete</button>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+</scroll-view>
